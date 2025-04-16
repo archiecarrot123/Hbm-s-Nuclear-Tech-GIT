@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 
 import org.lwjgl.opengl.GL11;
 
+import com.hbm.util.clock;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
@@ -188,7 +189,7 @@ public class HbmModelObject implements IModelCustom {
     @SideOnly(Side.CLIENT)
     public void tessellateAll(Tessellator tessellator)
     {
-	float currentTime = System.currentTimeMillis();
+	float currentTime = com.hbm.util.clock.get_ms();
         for (HbmGroupObject groupObject : groupObjects)
         {
             groupObject.render(currentTime, tessellator);
@@ -199,7 +200,7 @@ public class HbmModelObject implements IModelCustom {
     @SideOnly(Side.CLIENT)
     public void renderOnly(String... groupNames)
     {
-	float currentTime = System.currentTimeMillis();
+	float currentTime = com.hbm.util.clock.get_ms();
         for (HbmGroupObject groupObject : groupObjects)
         {
             for (String groupName : groupNames)
@@ -214,7 +215,7 @@ public class HbmModelObject implements IModelCustom {
 
     @SideOnly(Side.CLIENT)
     public void tessellateOnly(Tessellator tessellator, String... groupNames) {
-	float currentTime = System.currentTimeMillis();
+	float currentTime = com.hbm.util.clock.get_ms();
         for (HbmGroupObject groupObject : groupObjects)
         {
             for (String groupName : groupNames)
@@ -231,7 +232,7 @@ public class HbmModelObject implements IModelCustom {
     @SideOnly(Side.CLIENT)
     public void renderPart(String partName)
     {
-	float currentTime = System.currentTimeMillis();
+	float currentTime = com.hbm.util.clock.get_ms();
         for (HbmGroupObject groupObject : groupObjects)
         {
             if (partName.equalsIgnoreCase(groupObject.name))
@@ -243,7 +244,7 @@ public class HbmModelObject implements IModelCustom {
 
     @SideOnly(Side.CLIENT)
     public void tessellatePart(Tessellator tessellator, String partName) {
-	float currentTime = System.currentTimeMillis();
+	float currentTime = com.hbm.util.clock.get_ms();
         for (HbmGroupObject groupObject : groupObjects)
         {
             if (partName.equalsIgnoreCase(groupObject.name))
@@ -257,7 +258,7 @@ public class HbmModelObject implements IModelCustom {
     @SideOnly(Side.CLIENT)
     public void renderAllExcept(String... excludedGroupNames)
     {
-	float currentTime = System.currentTimeMillis();
+	float currentTime = com.hbm.util.clock.get_ms();
         for (HbmGroupObject groupObject : groupObjects)
         {
             boolean skipPart=false;
@@ -278,7 +279,7 @@ public class HbmModelObject implements IModelCustom {
     @SideOnly(Side.CLIENT)
     public void tessellateAllExcept(Tessellator tessellator, String... excludedGroupNames)
     {
-	float currentTime = System.currentTimeMillis();
+	float currentTime = com.hbm.util.clock.get_ms();
         boolean exclude;
         for (HbmGroupObject groupObject : groupObjects)
         {
