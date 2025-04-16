@@ -1282,7 +1282,7 @@ public class ModEventHandlerClient {
 	@SubscribeEvent
 	public void onRenderWorldLastEvent(RenderWorldLastEvent event) {
 
-		com.hbm.util.clock.update();
+		Clock.update();
 		
 		GL11.glPushMatrix();
 
