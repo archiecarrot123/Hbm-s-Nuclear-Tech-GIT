@@ -1282,6 +1282,8 @@ public class ModEventHandlerClient {
 	@SubscribeEvent
 	public void onRenderWorldLastEvent(RenderWorldLastEvent event) {
 
+		com.hbm.util.clock.update();
+		
 		GL11.glPushMatrix();
 
 		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
